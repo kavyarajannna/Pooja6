@@ -863,7 +863,7 @@
 
         /* Label Styling */
         label {
-              color: #636b46;
+color: #636b46;
             display: block;
             /* Ensures label is a block element */
         }
@@ -2333,30 +2333,34 @@
     <!-- popup -->
     <!-- popup -->
     <script>
-        // Show the popup when "Book Now" button is clicked
-        function showPopup() {
-            document.getElementById('popupOverlay').style.display = 'flex';
-        }
-        // Close Button Functionality
-        document.getElementById('closeBtn').onclick = function () {
-            document.getElementById('popupOverlay').style.display = 'none';
-        };
+      // Show the popup when "Book Now" button is clicked
+function showPopup() {
+    document.getElementById('popupOverlay').style.display = 'flex';
+}
 
-        // WhatsApp Integration
-        function sendToWhatsApp() {
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const poojaType = document.getElementById('poojaType').value;
-            const date = document.getElementById('date').value;
-            const details = document.getElementById('details').value;
+// Close Button Functionality
+document.getElementById('closeBtn').onclick = function () {
+    document.getElementById('popupOverlay').style.display = 'none';
+};
 
-            if (name && contact && poojaType && date) {
-                const message = `Name: ${name}%0AContact: ${contact}%0APooja Type: ${poojaType}%0APreferred Date: ${date}%0ADetails: ${details}`;
-                window.open(`https://wa.me/918310214624?text=${message}`, '_blank');
-            } else {
-                alert('Please fill all required fields.');
-            }
-        }
+// WhatsApp Integration
+function sendToWhatsApp() {
+    const name = document.getElementById('name').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const poojaType = document.getElementById('poojaType').value.trim();
+    const date = document.getElementById('date').value.trim();
+    const details = document.getElementById('details').value.trim();
+
+    if (name && contact && poojaType && date) {
+        const message = `Name: ${name}\nContact: ${contact}\nPooja Type: ${poojaType}\nPreferred Date: ${date}\nDetails: ${details}`;
+        const whatsappURL = `https://wa.me/918310214624?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappURL, '_blank');
+    } else {
+        alert('Please fill all required fields.');
+    }
+}
+
 
     </script>
     <script>
